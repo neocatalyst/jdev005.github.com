@@ -73,7 +73,9 @@ function addMarker1(map,latlong,title,content){
       description: "Google map"
     }).addInputs({
       in: {
+        
         action: function (coords) {
+        alert("got stuff");
           showMap(coords);
         },
         type: "object"

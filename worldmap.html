@@ -22,15 +22,6 @@
          map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
   
-         google.maps.event.addListener(map, 'click', function(event) {
-            mapOptions = {
-              zoom:16,
-              center : event.latLng,
-              mapTypeId : google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-                    });
 
         function showMap(coords){
     googleLatAndLong= new google.maps.LatLng(coords.latitude,coords.longitude);
@@ -55,6 +46,18 @@ function callmap(){
     
     addMarker1(map,googleLatAndLong,title,content);
     // this function adds a marker to our current location 
+
+
+google.maps.event.addListener(map, 'click', function(event) {
+            mapOptions = {
+              zoom:16,
+              center : event.latLng,
+              mapTypeId : google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+                    });
+
 
 }
 

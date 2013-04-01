@@ -21,12 +21,12 @@ function getMyLocation(){
 	}
 }
 
-function displayLocation(position) {
+function displayLocation(position){
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
 
 	Meemoo.send("out",position.coords);
-alert("sent");
+
 }
 
 

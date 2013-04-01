@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
-  <title>             </title>
+ <meta name="author" content="jdev005">
+  <meta name="description" content="gets geolocation" />
+  <title>Get Location</title>
+ <script src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script>
 
+
+window.onload = function(){
+
+document.getElementById("tracker").onclick=function(){getMyLocation()};
+
+function getMyLocation(){
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(displayLocation);
+	}
+	else{
+		alert("No geolocation support");
+	}
+}
+
+function displayLocation (position) {
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+
+	Meemoo.send("out",position.coords);
+
+}
+
+
+
+
+
+
+Meemoo.setInfo({
+      title: "getMyLocation",
+      author: "jdev005",
+      description: "gets geolocation"
+    })
+    .addInputs({})
+    .addOutputs({
+      out: {
+        type: "object"
+      }
+    });
+
+};
+</script>
 </head>
 
 <body>
 
-
-
+<input id="tracker" type="button" value="Track Me">
 
 
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="author" content="jdev005">
+  <meta name="description" content="gets geolocation" />
+  <title>Get Location</title>
+ <script src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script>
+
+window.onload = function(){
+
+document.getElementById("search").onclick=function(){sendData()};
+
+function sendData(){
+	var query=document.getElementById("textbox").value;
+	Meemoo.send("query",query);
+}
+Meemoo.setInfo({
+      title: "Search",
+      author: "jdev005",
+      description: "send search text"
+    })
+    .addInputs({})
+    .addOutputs({
+      query: {
+        type: "string"
+      }
+    });
+
+};
+</script>
+</head>
+
+<body>
+<input id="textbox" type="text" placeholder="Search...">
+<input id="search" type="button" value="Search">
+
+
+</body>
+
+
+</html>

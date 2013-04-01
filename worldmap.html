@@ -24,6 +24,7 @@
   
          google.maps.event.addListener(map, 'click', function(event) {
             mapOptions = {
+              zoom:16,
               center : event.latLng,
               mapTypeId : google.maps.MapTypeId.ROADMAP
             };

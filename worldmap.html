@@ -48,14 +48,18 @@ function callmap(){
     // this function adds a marker to our current location 
 
 
-google.maps.event.addListener(map, 'click', function(event) {
-            mapOptions = {
-              zoom:16,
-              center : event.latLng,
-              mapTypeId : google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
+google.maps.event.addListener(map, 'dblclick', function(event) {
+            var latitude = event.latLng.lat();
+            var longitude = event.latLng.lng();
+
+var coords = {
+  latitude: latitude,
+  longitude: longitude
+};
+Meemoo.send("coords", coords);
+              
+             
+            
                     });
 
 
@@ -135,6 +139,10 @@ function addMarker(map,result){
         displayPlaces(map,googleLatAndLong,query);  
         },
         type: "string"
+      }
+    }).addOutputs({
+      coords: {
+        type: "object"
       }
     });
 

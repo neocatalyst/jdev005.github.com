@@ -48,20 +48,6 @@ function callmap(){
     // this function adds a marker to our current location 
 
 
-google.maps.event.addListener(map, 'dblclick', function(event) {
-            var latitude = event.latLng.lat();
-            var longitude = event.latLng.lng();
-
-var coords = {
-  latitude: latitude,
-  longitude: longitude
-};
-Meemoo.send("coords", coords);
-              
-             
-            
-                    });
-
 
 }
 

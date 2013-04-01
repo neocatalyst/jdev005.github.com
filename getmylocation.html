@@ -25,7 +25,11 @@ function displayLocation(position){
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
 
-	Meemoo.send("out",position.coords);
+var coords = {
+  latitude: latitude,
+  longitude: longitude
+};
+Meemoo.send("coords", coords);
 
 }
 
@@ -38,7 +42,7 @@ Meemoo.setInfo({
     })
     .addInputs({})
     .addOutputs({
-      out: {
+      coords: {
         type: "object"
       }
     });

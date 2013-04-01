@@ -22,7 +22,14 @@
          map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
   
-        
+         google.maps.event.addListener(map, 'click', function(event) {
+            mapOptions = {
+              center : event.latLng;,
+              mapTypeId : google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+                    });
 
         function showMap(coords){
     googleLatAndLong= new google.maps.LatLng(coords.latitude,coords.longitude);

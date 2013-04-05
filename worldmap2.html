@@ -40,7 +40,7 @@ Meemoo.send("coords", coords);
     googleLatAndLong= new google.maps.LatLng(coords.latitude,coords.longitude);
 
    mapOptions = {
-    zoom :16 ,
+    zoom :13 ,
     center : googleLatAndLong,
     mapTypeId : google.maps.MapTypeId.ROADMAP
   };
@@ -146,7 +146,7 @@ function addMarker(map,result){
         },
         type: "object"
       },
-      query: {
+      searchNear: {
         action:function(query){
           callmap();
         displayPlaces(map,googleLatAndLong,query);  

@@ -22,6 +22,17 @@
          map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
   
+        google.maps.event.addListener(map, 'click', function(event) {
+            var latitude = event.latLng.lat();
+            var longitude = event.latLng.lng();
+
+var coords = {
+  latitude: latitude,
+  longitude: longitude
+};
+Meemoo.send("coords", coords);
+                          
+                    });
 
         function showMap(coords){
     googleLatAndLong= new google.maps.LatLng(coords.latitude,coords.longitude);

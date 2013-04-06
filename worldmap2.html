@@ -123,7 +123,7 @@ function displayPlaces(map,googleLatAndLong,query) {
     radius:'5000',
     query: query
   };
- 
+ map.setCenter(googleLatAndLong);
 //Google Text Search API 
   service = new google.maps.places.PlacesService(map);
   service.textSearch(request,callback);

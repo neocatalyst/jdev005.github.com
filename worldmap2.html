@@ -97,7 +97,7 @@ function addMarker1(map,latlong,title,content){
 }
 
 
-function codeAddress(map,query) {
+function codeAddress(query) {
     geocoder = new google.maps.Geocoder();
     var address = query;
     geocoder.geocode( { 'address': address}, function(results, status) {
@@ -168,8 +168,7 @@ function addMarker(map,result){
       },
       search: {
         action:function(query){
-          callmap();
-        codeAddress(map,query);  
+        codeAddress(query);  
         },
         type: "string"
       },

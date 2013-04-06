@@ -96,25 +96,6 @@ function addMarker1(map,latlong,title,content){
 }
 
 
-function codeAddress(map,query) {
-     var geocoder;
-     geocoder = new google.maps.Geocoder();
-    var address = query;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  }
-
-
-
 function displayPlaces(map,googleLatAndLong,query) {
   var request ={
     location:googleLatAndLong,
@@ -169,13 +150,6 @@ function addMarker(map,result){
         action:function(query){
           callmap();
         displayPlaces(map,googleLatAndLong,query);  
-        },
-        type: "string"
-      },
-    search: {
-        action:function(query){
-          callmap();
-        codeAddress(map,query);  
         },
         type: "string"
       }

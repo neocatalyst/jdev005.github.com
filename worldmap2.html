@@ -104,10 +104,15 @@ function codeAddress(query) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         googleLatAndLong=results[0].geometry.location;
-        var marker = new google.maps.Marker({
-            map: map,
+       
+        var markerOptions={
+          map: map,
             position: results[0].geometry.location,
              icon:"http://png.findicons.com/files/icons/2534/aroma/24/pin_location_blue.png"
+           };
+        
+           var marker = new google.maps.Marker(markerOptions);
+
         });
       } else {
         alert("Geocode was not successful for the following reason: " + status);

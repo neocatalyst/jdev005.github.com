@@ -106,7 +106,8 @@ function codeAddress(query) {
         googleLatAndLong=results[0].geometry.location;
         var marker = new google.maps.Marker({
             map: map,
-            position: results[0].geometry.location
+            position: results[0].geometry.location,
+             icon:"http://png.findicons.com/files/icons/2534/aroma/24/pin_location_blue.png"
         });
       } else {
         alert("Geocode was not successful for the following reason: " + status);

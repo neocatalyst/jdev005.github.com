@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="author" content="jdev005">
+  <meta name="description" content="gets geolocation" />
+  <title>Get Location</title>
+ <script src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script>
+
+
+window.onload = function(){
+
+document.getElementById("tracker").onclick=function(){getMyLocation()};
+
+function getMyLocation(){
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(displayLocation);
+	}
+	else{
+		alert("No geolocation support");
+	}
+}
+
+function displayLocation(position){
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+
+var coords = {
+  latitude: latitude,
+  longitude: longitude
+};
+Meemoo.send("coords", coords);
+
+}
+
+
+
+Meemoo.setInfo({
+      title: "Tracker Button",
+      author: "jdev005",
+      description: "gets geolocation"
+    })
+    .addInputs({})
+    .addOutputs({
+      coords: {
+        type: "object"
+      }
+    });
+
+};
+</script>
+</head>
+
+<body>
+
+<input id="tracker" type="button" value="Share Location">
+
+
+</body>
+
+
+</html>
+

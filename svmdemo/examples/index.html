@@ -3,33 +3,62 @@
 <head>
 <meta charset="utf-8" />
 
-<title>jQuery IME example</title>
-<meta name="author" content="Santhosh Thottingal" />
-<link href="../css/jquery.ime.css" rel="stylesheet" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" ></script>
-<script src="../src/jquery.ime.js"></script>
-<script src="../src/jquery.ime.selector.js"></script>
-<script src="../src/jquery.ime.preferences.js"></script>
-<script src="../src/jquery.ime.inputmethods.js"></script>
-<!-- Demo -->
+<title>jQuery i18n example</title>
+<meta name="author" content="Jaydev Ajit Kumar" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.i18n.min.js"></script>
 <link href="demo.css" rel="stylesheet" />
-<script>
-	$( document ).ready( function () {
-		$( 'input,textarea' ).ime();
-	} );
+
+<script type="text/javascript">
+$(document).ready(function(){
+i18n_dict_mal = {
+"title" : "എസ്.എം.സിന്ടെ ഡെമോ ഭാഗം ",
+"text" : "jQuery.i18n ഉപയോഗിക്കല്‍  ഇ ഭാഗത്തിൽ കാണാം "
+};
+
+i18n_dict_eng = {
+"title" : "Demo page for SMC",
+"text" : "jQuery.i18n is used to make this demo "
+};
+
+ $('#mal').on('click', loadmal);
+ $('#eng').on('click', loadeng);
+
+ function loadmal(){
+ 	$.i18n.setDictionary(i18n_dict_mal);
+
+ 	$('h1').text($.i18n._('title'));
+ 	$('h2').text($.i18n._('text'));
+ }
+
+function loadeng(){
+ 	$.i18n.setDictionary(i18n_dict_eng);
+
+ 	$('h1').text($.i18n._('title'));
+ 	$('h2').text($.i18n._('text'));
+ }
+
+
+});
 </script>
 </head>
 <body>
-	<div id="top-bar"></div><div class="wrapper"><ul class="lang-selector"><li><a class="language active" data-language="en">
+	
+	<div id="top-bar"></div><div class="wrapper"><ul class="lang-selector"><li><a id="eng" class="language active" data-language="en">
       English
     </a></li><li><span>
       |
-    </span></li><li><a class="language" data-language="ml">
+    </span></li><li><a id="mal" class="language" data-language="ml">
       മലയാളം‌‌
     </a></li></ul></div>
-	
+        
+        
 	<div>
 		
+		
+
+        
 			<br>
 			<img style="float:left;" src="logo.png"></img>
 			<h1>Demo page for SMC</h1>
@@ -38,14 +67,17 @@
 		
 		<br>
 
-			<h2>This demo page shows how we can use both jQuery.ime and jQuery.i18n</h2>
+			<h2>Query.i18n is used to make this demo</h2>
 		<br>
-		
+	
+
 		<div>
 			<textarea></textarea>
 		</div>
 
 		
 	</div>
+
+
 </body>
 </html>

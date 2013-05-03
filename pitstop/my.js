@@ -12,5 +12,5 @@ setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
 }
 }
  
-window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+window.addEventListener("load", function(){ hideAddressBar();  } );
 window.addEventListener("orientationchange", hideAddressBar );

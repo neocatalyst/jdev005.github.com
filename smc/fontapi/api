@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Malayalam1';
-  src: url('http://jdev005.github.io/smc/fonts/Meera.ttf');
+  src: url('http://jdev005.github.io/smc/fonts/Suruma.ttf');
   font-weight:normal;
   font-style:normal;
 }

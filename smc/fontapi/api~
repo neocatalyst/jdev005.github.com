@@ -1,4 +1,6 @@
 @font-face {
-  font-family: 'Meera';
-  src: local('Meera') url('jdev005.github.io/smc/fonts/Meera.ttf') format('truetype');
+  font-family: 'Malayalam';
+  src: url('../fonts/Meera.ttf');
+  font-weight:normal;
+  font-style:normal;
 }

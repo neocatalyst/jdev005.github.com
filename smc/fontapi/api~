@@ -1,0 +1,4 @@
+@font-face {
+  font-family: 'Meera';
+  src: url('jdev005.github.io/smc/fonts/Meera.ttf');
+}

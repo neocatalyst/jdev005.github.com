@@ -1,6 +1,13 @@
 @font-face {
-  font-family: 'Malayalam';
+  font-family: 'Malayalam1';
   src: url('../fonts/Meera.ttf');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: 'Malayalam2';
+  src: url('../fonts/Suruma.ttf');
   font-weight:normal;
   font-style:normal;
 }

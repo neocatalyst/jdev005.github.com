@@ -1,85 +1,108 @@
+window.onload = getMyLocation ; // function to be called when window loads 
+var map ;
+var service;
 
-
-
-
-
-var map;
-
-
-
-function getMyLocation() {
-	
-if (navigator.geolocation) {
-
-		
-navigator.geolocation.getCurrentPosition(
-displayLocation);
-
+function getMyLocation(){
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(displayLocation);
 	}
-
-else {
-
-		alert("Oops, no geolocation support");
-
+	else{
+		alert("No geolocation support");
 	}
-
 }
 
-function displayLocation(position) {
+/* the function above checks for geoloaction support in our system.
+ geolocation is the property in the navigator object, which checks for geolocation support.
+ If it is support, it calls the getCurrentPosition method of the navigator.gelocation object.
+ This method does the work of getting the browsers location , it has handler function(here named displayLocation)*/
 
+
+function displayLocation(position){
 	var latitude = position.coords.latitude;
-
 	var longitude = position.coords.longitude;
 
-/*
-	var div = document.getElementById("location");
-
-	div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude;
-    div.innerHTML +="(with" + position.coords.accuracy + "meters accuracy)" ; 
-  */
-    showMap(position.coords);
-
-
+	showMap(position.coords);
 }
 
+/* when the displayLocation is called the geolocation API passes it a position object, that contains information about the browsers location.
+ we set the latitude and longitude values and then call the showMap function */
+
 function showMap(coords){
-    var googleLatAndLong= new google.maps.LatLng(12.922624,77.498575);
+	  googleLatAndLong= new google.maps.LatLng(coords.latitude,coords.longitude);
+// this make a map object by using google's map constructor
 
-    var googleLatAndLong2= new google.maps.LatLng(12.92185,77.499188);
-    
-    var googleLatAndLong3=new google.maps.LatLng(12.922033,77.502728);
 
-    var googleLatAndLong4= new google.maps.LatLng(12.92356,77.498947);
+	//adding some map options provided by google 
 
-    var googleLatAndLong5= new google.maps.LatLng(12.924689,77.499272);
-	
-    var googleLatAndLong6= new google.maps.LatLng(12.92264,77.49642);
+	 mapOptions = {
+		zoom :15 ,
+		center : googleLatAndLong,
+		mapTypeId : google.maps.MapTypeId.ROADMAP
+	};
 
-    var mapOptions={
-        zoom : 16,
-        center : googleLatAndLong,
-        mapTypeId : google.maps.MapTypeId.ROADMAP
-    };
-    
-    var mapDiv = document.getElementById("map");
-    
-    map = new google.maps.Map(mapDiv,mapOptions);
-    
-    var title ="my home" ;
+callmap();
+
+}
+function callmap(){
+
+	var mapDiv = document.getElementById("map");
+	map = new google.maps.Map(mapDiv,mapOptions);
+	/* another constructor from google that takes and element and mapOptions and creates and returns a map object */
+
+	var title ="my home" ;
     var content =" you are here ";
     
     addMarker1(map,googleLatAndLong,title,content);
-	addMarker(map,googleLatAndLong2,"2","4 out of 40 slots free",googleLatAndLong);
-	addMarker(map,googleLatAndLong3,"3","3 out of 30 slots free",googleLatAndLong);
-        addMarker(map,googleLatAndLong4,"4","1 out of 15 slots free",googleLatAndLong);
-	addMarker(map,googleLatAndLong5,"5"," no slots free !! sorry !!",googleLatAndLong);
-addMarker(map,googleLatAndLong6,"6"," 3 out of 30 slots free !!",googleLatAndLong);
+    // this function adds a marker to our current location 
+
 }
 
 
-/*centre place */
-function addMarker1(map,latlong,title,content,start){
+// the query parameter is got from our search text box 
+function displayPlaces(map,googleLatAndLong,query) {
+	var request ={
+		location:googleLatAndLong,
+		radius:'5000',
+		query: query
+	};
+ 
+//Google Text Search API 
+	service = new google.maps.places.PlacesService(map);
+	service.textSearch(request,callback);
+}
+
+function callback(results,status){
+
+	/* this is the handler for the search results,which gets a results array
+	and a status as arguments, if the status is OK ,
+	for every result it adds a marker on the map */
+
+	if (status=="OK"){
+		for(var i=0;i<results.length;i++){
+			addMarker(map,results[i]);
+		}
+	}
+}
+
+function addMarker(map,result){
     
+    //set marker options 
+     markerOptions={
+        position : result.geometry.location,
+        map : map ,
+        title : result.name ,
+        clickable : true
+        
+    };
+    var marker = new google.maps.Marker(markerOptions);
+	/*  another constructor from google that takes and element and options and creates and returns a marker object */
+
+google.maps.event.addListener(marker,"click",function(){road(result.geometry.location,googleLatAndLong)});
+}
+
+function addMarker1(map,latlong,title,content){
+    
+    //set marker options 
     var markerOptions={
         position : latlong,
         map : map ,
@@ -87,53 +110,19 @@ function addMarker1(map,latlong,title,content,start){
         clickable : true,
         animation:google.maps.Animation.BOUNCE
     };
-    
-    var marker = new google.maps.Marker(markerOptions);
-    
-    var infoWindowOptions = {
-        content : content ,
-        position : latlong 
-    };
-    
-    var infoWindow= new google.maps.InfoWindow(infoWindowOptions);
-    
-    google.maps.event.addListener(marker,"click",function(){
-        infoWindow.open(map);
-})
+	    
+	var marker = new google.maps.Marker(markerOptions);
+	/*  another constructor from google that takes and element and options and creates and returns a marker object */
+
+
 }
 
+// our getPlaces fxn is here ... suprising its so small :D 
+function getPlace(){
+//gets value from text box and then computes places
 
-/*other places*/
-
-function addMarker(map,latlong,title,content,start){
-    
-    var markerOptions={
-        position : latlong,
-        map : map ,
-        title : title ,
-        clickable : true
-    };
-    
-    var marker = new google.maps.Marker(markerOptions);
-    
-    var infoWindowOptions = {
-        content : content ,
-        position : latlong 
-    };
-    
-    var infoWindow= new google.maps.InfoWindow(infoWindowOptions);
-    
-    google.maps.event.addListener(marker,"click",function(){
-        infoWindow.open(map);
-      window.setTimeout(function() {
-      infoWindow.close(map);
-    }, 10000);
-
-
-
-    })
-    
-    google.maps.event.addListener(marker,"click",function(){road(start, latlong)});
+	callmap();
+	displayPlaces(map,googleLatAndLong,'parking');	
 }
 
 var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -149,14 +138,8 @@ function road(start, latlong){
  directionsService.route(request, function(result, status) {
   if (status == google.maps.DirectionsStatus.OK) {
    directionsDisplay.setDirections(result);
-
-
-
-  directionsDisplay.setMap(map);
+   directionsDisplay.setMap(map);
   };
  /*Set the directions on the map*/
 })
 }
-
-
-

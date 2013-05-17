@@ -117,7 +117,10 @@ h3{
 a{
 	text-decoration: none;
 	color:white;
+}
 
+a:hover{
+	color: #95a5a6;
 }
 p{
 	text-align:center;

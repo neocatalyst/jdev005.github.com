@@ -3,5 +3,6 @@ $(document).ready(function(){
 		$('#navigation').toggle("slow");
 	});
 
+$('#up').addClass('move-up');
 
 });

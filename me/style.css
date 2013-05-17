@@ -153,6 +153,7 @@ padding:25px;
 	position: relative;
 	top:30px;
 	left:20px;
+	cursor: pointer;
 }
 #down{
 	position: relative;

@@ -35,6 +35,8 @@ $(document).ready(function(){
 
     });
 
+setTimeout(function(){
 $('#up').addClass('move-up');
+},3000)
 
 });

@@ -40,7 +40,7 @@ h1{
 .main{
 	color: #34495e;
 	background-color: white;
-	min-height: 900px;
+	min-height: 950px;
 	margin:0;
 	
 }
@@ -263,4 +263,13 @@ h4{
 .js{ 
   z-index: 999;
  
- background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center; }
+ background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center; 
+}
+
+.coder{
+	font-family: 'Josefin Slab', serif;
+	font-size: 42px;
+	font-weight: 900;
+	margin-left:50px; 
+	margin-right:50px;
+}

@@ -152,10 +152,17 @@ padding:25px;
 	left:20px;
 	cursor: pointer;
 }
+
 #down{
 	position: relative;
 	top:30px;
-	left:30px;
+	left:40px;
+}
+#upnav{
+	position: relative;
+	top:30px;
+	left:45px;
+	
 }
 
 

@@ -1,10 +1,7 @@
 $(document).ready(function(){
 
-    $(window).load(function(){
-    $('#preloader').fadeOut('slow',function(){$(this).remove();});
-});
 
-    
+
 	$("body").css("display", "none");
  
     $("body").fadeIn(2000);

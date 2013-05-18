@@ -16,6 +16,19 @@ $(document).ready(function(){
 		$('#navigation').toggle("slow");
 	});
 
+    $('.img-float').mouseover(function(){
+        $(this).addClass('rotateit');
+       
+
+    });
+    $('.img-float').mouseleave(function(){
+        $(this).removeClass('rotateit');
+        $(this).find('.front').removeClass('front').addClass('temp');
+        $(this).find('.back').removeClass('back').addClass('front');
+        $(this).find('.temp').removeClass('temp').addClass('back');
+
+    });
+
 $('#up').addClass('move-up');
 
 });

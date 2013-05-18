@@ -12,13 +12,19 @@ $(document).ready(function(){
         $("body").fadeOut(1500, redirectPage);     
     });
          
+    if(window.outerWidth<1330){
+        $('.span5').hide();
+    }
+
+
     function redirectPage() {
         window.location = linkLocation;
     }
 	$('#nav').on("click",function(){
 		$('#navigation').toggle("slow");
         $('#picbox').toggle("slow");
-        $('.span5').toggle("slow")
+        $('.span5').toggle("slow");
+        $('#buffer').toggle("slow");
         $('.content').toggleClass('width700');
 	});
 

@@ -21,7 +21,7 @@ h1{
 }
 #navigation{
 	width:260px;
-	min-height:950px;
+	min-height:900px;
 	float:left;
 	background-color:#e74c3c;
 	display: none;
@@ -33,14 +33,14 @@ h1{
 	float:left;
 	width:270px;
 	color:white;
-	min-height: 950px;
+	min-height: 900px;
 	margin: 0;
 }
 
 .main{
 	color: #34495e;
 	background-color: white;
-	min-height: 950px;
+	min-height: 900px;
 	margin:0;
 	
 }
@@ -78,16 +78,15 @@ top:-50px;
 }
 
 
-.content{
+p{
 	margin:10px;
-	padding:50px;
-	font-size: 18px;
-	position: relative;
-	float:left;
-	width:950px;
-
+	text-align:center;
+	font-family:sans-serif;
+font-weight: 300;
+font-size: 20px;
+padding:25px;
+	color: #34495e;
 }
-
 .width700{
 	margin:10px;
 	padding:50px;
@@ -158,15 +157,7 @@ a{
 a:hover{
 	color: #95a5a6;
 }
-p{
-	text-align:center;
-	padding:20px;
-	font-family:sans-serif;
-font-weight: 300;
-font-size: 20px;
-padding:25px;
-	color: #34495e;
-}
+
 
 #ribbion{
 	position:relative;

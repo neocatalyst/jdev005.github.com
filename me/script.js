@@ -14,6 +14,9 @@ $(document).ready(function(){
     }
 	$('#nav').on("click",function(){
 		$('#navigation').toggle("slow");
+        $('#picbox').toggle("slow");
+        $('.span5').toggle("slow")
+        $('.content').toggleClass('width700');
 	});
 
     $('.img-float').mouseover(function(){

@@ -21,7 +21,7 @@ h1{
 }
 #navigation{
 	width:260px;
-	min-height:1100px;
+	min-height:950px;
 	float:left;
 	background-color:#e74c3c;
 	display: none;
@@ -33,7 +33,7 @@ h1{
 	float:left;
 	width:270px;
 	color:white;
-	min-height: 1100px;
+	min-height: 950px;
 	margin: 0;
 }
 
@@ -78,15 +78,24 @@ top:-50px;
 }
 
 
-#content{
+.content{
 	margin:10px;
 	padding:50px;
-	margin-top: 0px;
-	padding-top: 0px;
 	font-size: 18px;
 	position: relative;
-	left: 30px;
+	float:left;
+	width:950px;
 	color: #34495e;
+}
+
+.width700{
+	margin:10px;
+	padding:50px;
+	font-size: 18px;
+	position: relative;
+	float:left;
+	color: #34495e;
+	width:700px;
 }
 
 .img-float{	
@@ -211,3 +220,41 @@ h4{
 	margin:20px;
 }
 
+.polaroid {
+	transition: all 1s linear;
+    -webkit-transition: all 1s linear; /** Chrome & Safari **/
+    -moz-transition: all 1s linear; /** Firefox **/
+
+  position: relative;
+  margin: 10px;
+  margin-top: 20px;
+}
+
+.polaroid:hover{
+	transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    z-index: 10;
+}
+ 
+.polaroid img {
+  border: 10px solid #fff;
+  border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}
+ 
+.polaroid p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: -15px;
+  font: 400 18px/1 'Kaushan Script', cursive;
+  color: #888;
+}
+
+#picdiv{
+	background-color: #ecf0f1;
+}

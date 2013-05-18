@@ -260,11 +260,8 @@ h4{
 	background-color: #ecf0f1;
 }
 
-.js{ 
-  z-index: 999;
  
- background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center; 
-}
+
 
 .coder{
 	font-family: 'Josefin Slab', serif;
@@ -272,4 +269,28 @@ h4{
 	font-weight: 900;
 	margin-left:50px; 
 	margin-right:50px;
+}
+
+/* Preloader */
+
+#preloader {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#333; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:50%; /* centers the loading animation horizontally one the screen */
+    top:50%; /* centers the loading animation vertically one the screen */
+    background-image:url('http://files.mimoymima.com/images/loading.gif'); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-100px 0 0 -100px; /* is width and height divided by two */
 }
